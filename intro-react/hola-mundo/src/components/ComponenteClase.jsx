@@ -3,7 +3,7 @@ import React from 'react'
 class ComponenteClase extends React.Component {
   state = {
     name: 'Estefania',
-    rol: 'Frontend',
+    rol: '',
     age: 20,
     other: [
       {
@@ -34,6 +34,12 @@ class ComponenteClase extends React.Component {
     )
   }
 
+  handleChange = (event) => { 
+    this.setState({
+      ...this.state,
+      rol: event.target.value
+    })
+  }
 
   render() {
     return (
@@ -70,6 +76,10 @@ class ComponenteClase extends React.Component {
         {
           this.renderJsx()
         }
+        <div>
+          <input type="text" placeholder="escribir" onChange={this.handleChange}/>
+          <p>{this.state.rol}</p>
+        </div>
       </div>
     )
   }
