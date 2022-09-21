@@ -26,15 +26,35 @@ class App extends Component {
       <>
         <h3>React con clas components 👴🏽</h3>
         <div className="App">
-          <span>
-            Contador <b>{this.state.counter}</b>{" "}
-          </span>
+          <div style={{ fontSize: 25, color: "yellow" }}>
+            {/* Objeto */}
+            Ingresa tu edad: <b>{this.state.counter}</b>{" "}
+          </div>
 
           <div className="btn-section">
             <button onClick={() => this.handleClick("inc")}>Incrementar</button>
             <button onClick={() => this.handleClick("dec")}>Decrementar</button>
           </div>
         </div>
+
+        {/* Conditional IF */}
+        {/* if(state.counter > 4) {} */}
+        {this.state.counter > 4 && <p>Ya puedes ir al kinder</p>}
+
+        {/* CONDITIONAL IF ELSE */}
+        {/* condicion ? verdadero : false */}
+
+        {this.state.counter > 12 ? (
+          <>
+            <h4> Ya pasas a secundaria</h4>
+            <section></section>
+            <div></div>
+            <br></br>
+            <p>Secciion de abajo</p>
+          </>
+        ) : (
+          <h5> Estas pequeño</h5>
+        )}
       </>
     );
   }
