@@ -24,7 +24,7 @@ class App extends Component {
     return (
       // React fragment
       <>
-        <h3>React con clas components 👴🏽</h3>
+        <h3>React con class components 👴🏽</h3>
         <div className="App">
           <div style={{ fontSize: 25, color: "yellow" }}>
             {/* Objeto */}
@@ -47,14 +47,26 @@ class App extends Component {
         {this.state.counter > 12 ? (
           <>
             <h4> Ya pasas a secundaria</h4>
-            <section></section>
-            <div></div>
-            <br></br>
-            <p>Secciion de abajo</p>
           </>
         ) : (
           <h5> Estas pequeño</h5>
         )}
+
+        {/* EJERCICIO 
+          MOSTRAR EL SIG MENSAJE CUANDO SEAS MAYOR DE EDAD (>+ 18) YA ERES MAYOR DE EDAD
+          MOSTRAR EL SIG MENSAJE CUANDO TENGAS ENTRE 18 Y 12 AñOS O MAS  ERES UN ADOLESCENTE
+          MOSTRAR EL SIG MENSAJE CUANDO TENGAS MENOS 12 Años  ERES UN NIñO
+          USAR CONDITIONAL RENDERING : )
+        */}
+
+        {this.state.counter >= 18 ? (
+          <p> YA ERES MAYOR DE EDAD 🍻</p>
+        ) : this.state.counter < 18 && this.state.counter >= 12 ? (
+          <p> ERES UN ADOLESCENTE 📕</p>
+        ) : (
+          <p> ERES UN NIñO</p>
+        )}
+        {/*  IF ELSE IF ELSE */}
       </>
     );
   }
