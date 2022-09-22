@@ -6,7 +6,9 @@ const propsObject = {
 
 console.log("counter ", propsObject.counter);
 console.log("darkMode ", propsObject.darkMode);
-console.log("funcion ", propsObject.guardarInfo());
+console.log("funcion ", propsObject.guardarInfo("Hola amig@s"));
 
 // const pintarNombre = () => console.log("Mi nombre");
 // pintarNombre();
+
+const arrayVal = [];

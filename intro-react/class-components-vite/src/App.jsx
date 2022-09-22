@@ -78,8 +78,14 @@ class App extends Component {
             <ChildComponent />
             {/* propHtml = valor */}
             {/* propCualquierNombre = 'hola' || state */}
-            <Button age={this.state.counter} style={this.state.darkMode} />
-            <button>Boton de html</button>
+            <Button
+              age={this.state.counter}
+              style={this.state.darkMode}
+              incrementCounter={(value) =>
+                console.log(`valor de incremento ${value}`)
+              }
+            />
+            {/* <button>Boton de html</button> */}
           </>
         )}
         {/*  IF ELSE IF ELSE */}
