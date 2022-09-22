@@ -3,12 +3,13 @@ import "./App.css";
 import ChildComponent from "./components/ChildComponent";
 import Button from "./components/Button";
 import TeenagerComponent from "./components/TeenagerComponent";
+import PersonComponent from "./components/PersonComponent";
 
 // 1 extender de Component
 class App extends Component {
   state = {
     counter: 0,
-    darkMode: true,
+    darkMode: false,
   };
 
   handleClick = (type) => {
@@ -69,13 +70,15 @@ class App extends Component {
         */}
 
         {this.state.counter >= 18 ? (
-          <p> YA ERES MAYOR DE EDAD 🍻</p>
+          <PersonComponent />
         ) : this.state.counter < 18 && this.state.counter >= 12 ? (
           <TeenagerComponent />
         ) : (
           <>
             <ChildComponent />
-            <Button />
+            {/* propHtml = valor */}
+            {/* propCualquierNombre = 'hola' || state */}
+            <Button age={this.state.counter} style={this.state.darkMode} />
             <button>Boton de html</button>
           </>
         )}
