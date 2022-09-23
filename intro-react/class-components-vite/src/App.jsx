@@ -10,7 +10,11 @@ class App extends Component {
   state = {
     counter: 0,
     darkMode: false,
+    team: "Dev.f"
   };
+
+  
+  
 
   handleClick = (type) => {
     if (type === "inc") this.setState({ counter: this.state.counter + 1 });
@@ -25,6 +29,10 @@ class App extends Component {
 
   // 2 poner el metodo de render()
   render() {
+    const stylesDiv = {
+      fontSize: 25, 
+      color: "yellow"
+    }
     // JSX
     return (
       // React fragment
@@ -35,7 +43,7 @@ class App extends Component {
           React con class components 👴🏽
         </h3>
         <div className="App">
-          <div style={{ fontSize: 25, color: "yellow" }}>
+          <div style={stylesDiv}>
             {/* Objeto */}
             Ingresa tu edad: <b>{this.state.counter}</b>{" "}
           </div>
@@ -72,7 +80,7 @@ class App extends Component {
         {this.state.counter >= 18 ? (
           <PersonComponent />
         ) : this.state.counter < 18 && this.state.counter >= 12 ? (
-          <TeenagerComponent />
+          <PersonComponent test="recibiendo props"/>
         ) : (
           <>
             <ChildComponent />
