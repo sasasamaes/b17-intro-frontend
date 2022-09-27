@@ -80,7 +80,7 @@ class App extends Component {
         {this.state.counter >= 18 ? (
           <PersonComponent />
         ) : this.state.counter < 18 && this.state.counter >= 12 ? (
-          <PersonComponent test="recibiendo props"/>
+          <PersonComponent test={true}/>
         ) : (
           <>
             <ChildComponent />
