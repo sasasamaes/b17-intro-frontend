@@ -16,6 +16,8 @@ const App = () => {
 
   const [characters, setCharacters] = useState([])
 
+
+
   const fetchApi = () => {
     axios.get("https://rickandmortyapi.com/api/character").then(res => {
       const characters = res.data.results
@@ -24,8 +26,14 @@ const App = () => {
   }
    // useEffect (CICLO DE VIDA HOOK)
    useEffect(() => {
-    // Update the document title using the browser API
+    // Se ejecuta cuando se monta y se actualiza (props/state)
     fetchApi()
+  });
+  
+  useEffect(() => {
+    return () => {
+      // Se ejecuta cuando se desmonta
+    }
   });
 
   const handleChange = (event) => {
