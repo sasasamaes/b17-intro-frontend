@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import "./LoginForm.css";
 
-const LoginForm = () => {
-  const [credentials, setCredentials] = useState({});
+const LoginForm = ({ userLogged }) => {
+  const [credentials, setCredentials] = useState({}); // usuario: "", password: ""  1ER FORMA PARA WUITAR WARNING
   const credentialsHarcoded = { user: "usuarioG17", password: "password" };
   /**
-   * Si las credenciales son correctas, login exitoso
+
    * Harcodear 👀 credenciales con
    *    user: usuarioG17
    *    password: password
@@ -16,29 +17,26 @@ const LoginForm = () => {
   const submitForm = () => {
     const { user, password } = credentialsHarcoded;
     if (credentials.user === user && credentials.password === password) {
-      console.log("credentials EXITOSAS ✅");
+      userLogged(true);
     }
   };
 
   return (
-    <div>
-      LoginForm Component
-      <div>
-        <input
-          type="text"
-          name="user"
-          value={credentials.user}
-          onChange={handleFormValue}
-        />
-        <input
-          type="password"
-          name="password"
-          value={credentials.password}
-          onChange={handleFormValue}
-        />
+    <div className="form">
+      <input
+        type="text"
+        name="user"
+        value={credentials.user || ""}
+        onChange={handleFormValue}
+      />
+      <input
+        type="password"
+        name="password"
+        value={credentials.password || ""}
+        onChange={handleFormValue}
+      />
 
-        <button onClick={() => submitForm()}>Login</button>
-      </div>
+      <button onClick={() => submitForm()}>Login</button>
     </div>
   );
 };
