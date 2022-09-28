@@ -1,17 +1,18 @@
 import { useState } from "react";
 import "./App.css";
+import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
 
 function App() {
   const [isUserLogged, setisUserLogged] = useState(false);
   return (
     <div className="App">
-      <h3>React Login 👤</h3>
+      <h2>React app 📝</h2>
       <div className="card">
         {!isUserLogged ? (
           <LoginForm userLogged={(value) => setisUserLogged(value)} />
         ) : (
-          <h2>Componente login exitoso</h2>
+          <Dashboard />
         )}
       </div>
     </div>
