@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import PlanetDetail from "./PlanetDetail";
 
 const Dashboard = () => {
   const BASE_URL = "https://swapi.dev/api/";
@@ -63,7 +64,7 @@ const Dashboard = () => {
               </div>
             ))
           ) : (
-            <h3>Mostrar detalle</h3>
+            <PlanetDetail details={planetInfo} />
           )}
         </div>
       )}
