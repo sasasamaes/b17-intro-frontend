@@ -64,7 +64,10 @@ const Dashboard = () => {
               </div>
             ))
           ) : (
-            <PlanetDetail details={planetInfo} />
+            <PlanetDetail
+              details={planetInfo}
+              handleResetList={() => setPlanetInfo({})}
+            />
           )}
         </div>
       )}
