@@ -6,6 +6,7 @@ const Dashboard = () => {
 
   const [planetArray, setPlanetArray] = useState([]);
   const [planetInfo, setPlanetInfo] = useState({});
+  const [planetIndex, setplanetIndex] = useState(undefined);
 
   useEffect(() => {
     axios
@@ -14,7 +15,17 @@ const Dashboard = () => {
       .catch((error) => console.log("error calling SWAPI"));
   }, []);
 
-  const recoverPlanetDetail = () => console.log("llamada otra vez a la API ");
+  useEffect(() => {
+    console.log("planetIndex", planetIndex);
+    axios
+      .get(`${BASE_URL}planets/${planetIndex}`)
+      .then(({ data }) => console.log("detalle planeta", data))
+      .catch((error) => console.log("error calling SWAPI", error));
+  }, [planetIndex]);
+
+  const recoverPlanetDetail = (valorIndice) => {
+    setplanetIndex(valorIndice + 1);
+  };
 
   return (
     <>
@@ -24,7 +35,7 @@ const Dashboard = () => {
         planetArray.map((planet, index) => (
           <div
             key={index}
-            onClick={recoverPlanetDetail}
+            onClick={() => recoverPlanetDetail(index)}
             style={{ border: "2px solid white", margin: "10px 0" }}
           >
             <p>Name: {planet.name}</p>
