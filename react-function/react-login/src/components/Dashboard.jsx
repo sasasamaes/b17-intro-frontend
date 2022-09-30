@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PlanetDetail from "./PlanetDetail";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   const BASE_URL = "https://swapi.dev/api/";
 
   const [planetArray, setPlanetArray] = useState([]);
@@ -29,7 +31,8 @@ const Dashboard = () => {
   }, [planetIndex]);
 
   const recoverPlanetDetail = (valorIndice) => {
-    setplanetIndex(valorIndice + 1);
+    // setplanetIndex(valorIndice + 1);
+    navigate(`/planet/${valorIndice + 1}`)
   };
 
   return (
@@ -49,6 +52,9 @@ const Dashboard = () => {
                   cursor: "pointer",
                 }}
               >
+                {/* <Link to={`/planet/${id}`}>
+                
+                </Link> */}
                 <p>Name: {planet.name}</p>
                 <p>Climate {planet.climate}</p>
                 <div>

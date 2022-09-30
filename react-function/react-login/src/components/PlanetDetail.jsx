@@ -1,6 +1,7 @@
 import React from "react";
 
 const PlanetDetail = ({ details, handleResetList }) => {
+  console.log("planet")
   return (
     <div>
       <h4>Detalle del planeta 🌍</h4>

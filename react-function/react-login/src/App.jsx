@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, Link } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
+import PlanetDetailRouter from "./components/PlanetDetailRouter";
 import ProtectedRoute from './components/ProtectedRoute'
 
 import "./App.css";
@@ -25,7 +26,7 @@ function App() {
         {/* <Route path="/contact" element={<h2>Contactos de mi app 📓</h2>} /> */}
         <Route element={<ProtectedRoute isAuth={isUserLogged} />}>
           <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/planet" element={<h2>Carrito de compras 🛒</h2>} />
+          <Route path="/planet/:id" element={<PlanetDetailRouter/>} />
         </Route>
       
         <Route path="/shopping-cart" element={<h2>Carrito de compras 🛒</h2>} />

@@ -9,6 +9,7 @@ const ProtectedRoute = ({
   if(!isAuth) {
     return <Navigate to={redirectTo} replace/>
   }
+
   return <Layout />;
 }
 
