@@ -1,22 +1,33 @@
 import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
+import ProtectedRoute from './components/ProtectedRoute'
+
 import "./App.css";
 
 function App() {
   const [isUserLogged, setisUserLogged] = useState(false);
+
   return (
     <div className="App">
       <Routes>
         {/* index ???  */}
+
+        
         <Route index element={<Navigate replace to="/login" />} />
+        {/* <Route path="/login" element={<h2>Login🛒</h2>} /> */}
         <Route
           path="/login"
           element={<LoginForm userLogged={(value) => setisUserLogged(value)} />}
         />
-        <Route path="/contact" element={<h2>Contactos de mi app 📓</h2>} />
+        {/* <Route path="/contact" element={<h2>Contactos de mi app 📓</h2>} /> */}
+        <Route element={<ProtectedRoute isAuth={isUserLogged} />}>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/planet" element={<h2>Carrito de compras 🛒</h2>} />
+        </Route>
+      
         <Route path="/shopping-cart" element={<h2>Carrito de compras 🛒</h2>} />
         <Route path="/payment" element={<h2>Pago 💳</h2>} />
 

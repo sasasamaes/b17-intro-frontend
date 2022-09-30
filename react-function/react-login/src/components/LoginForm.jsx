@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 
 const LoginForm = ({ userLogged }) => {
   const [credentials, setCredentials] = useState({}); // usuario: "", password: ""  1ER FORMA PARA WUITAR WARNING
   const credentialsHarcoded = { user: "usuarioG17", password: "password" };
+  const navigate = useNavigate();
   /**
 
    * Harcodear 👀 credenciales con
@@ -18,6 +20,7 @@ const LoginForm = ({ userLogged }) => {
     const { user, password } = credentialsHarcoded;
     if (credentials.user === user && credentials.password === password) {
       userLogged(true);
+      navigate('/dashboard')
     }
   };
 
