@@ -4,13 +4,14 @@ import Layout from './Layout'
 const ProtectedRoute = ({
   isAuth,
   redirectTo = "/login",
+  userLogged
 }) => {
 
   if(!isAuth) {
     return <Navigate to={redirectTo} replace/>
   }
 
-  return <Layout />;
+  return <Layout isAuth={isAuth} userLogged={userLogged}/>;
 }
 
 export default ProtectedRoute

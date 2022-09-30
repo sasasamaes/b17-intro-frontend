@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm";
 import PlanetDetailRouter from "./components/PlanetDetailRouter";
 import ProtectedRoute from './components/ProtectedRoute'
 
+
 import "./App.css";
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
           element={<LoginForm userLogged={(value) => setisUserLogged(value)} />}
         />
         {/* <Route path="/contact" element={<h2>Contactos de mi app 📓</h2>} /> */}
-        <Route element={<ProtectedRoute isAuth={isUserLogged} />}>
+        <Route element={<ProtectedRoute isAuth={isUserLogged} userLogged={(value) => setisUserLogged(value)}/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/planet/:id" element={<PlanetDetailRouter/>} />
         </Route>
