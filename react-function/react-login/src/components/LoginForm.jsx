@@ -15,13 +15,13 @@ const LoginForm = ({ userLogged }) => {
    */
 
   const handleFormValue = (event) => {
-    // { target: { name, value } }
+    const { target: { name, value } } = event
     setCredentials({ ...credentials, [name]: value })
-    console.log(event)
   }
     
 
-  const submitForm = () => {
+  const submitForm = (event) => {
+    event.preventDefault()
     const { user, password } = credentialsHarcoded
     if (credentials.user === user && credentials.password === password) {
       userLogged(true)
@@ -31,11 +31,13 @@ const LoginForm = ({ userLogged }) => {
 
   return (
     <>
-      {/* <Form>
+      <Form>
         <Form.Group className="mb-3" controlId="user">
           <Form.Label>User</Form.Label>
-          <Form.Control type="text" placeholder="Enter User" 
-         
+          <Form.Control type="text" placeholder="usuarioG17" 
+             name="user"
+             onChange={handleFormValue}
+             value={credentials.user || ''}
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -44,14 +46,14 @@ const LoginForm = ({ userLogged }) => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password"   />
+          <Form.Control type="password" placeholder="password"  name="password"  onChange={handleFormValue}      value={credentials.password || ''}/>
         </Form.Group>
       
-        <Button variant="primary" type="submit" onClick={() => submitForm()}>
+        <Button variant="primary" type="submit" onClick={(event) => submitForm(event)}>
         Login
         </Button>
-      </Form> */}
-      <div className="form">
+      </Form>
+      {/* <div className="form">
         <input
           type="text"
           name="user"
@@ -66,7 +68,7 @@ const LoginForm = ({ userLogged }) => {
         />
 
         <button onClick={() => submitForm()}>Login</button>
-      </div>
+      </div> */}
     </>
   )
 }
