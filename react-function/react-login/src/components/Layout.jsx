@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
-import { Container,Nav,Navbar,Button } from 'react-bootstrap';
+import { Container,Nav,Navbar,Button,Col } from 'react-bootstrap';
 
 const Layout = ({isAuth,userLogged}) => {
   const navigate = useNavigate()
@@ -17,8 +17,12 @@ const Layout = ({isAuth,userLogged}) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Link to="/dashboard" className="px-2">Dashboard</Link>
-             <Button variant="primary" onClick={logout}>Cerrar Sesion</Button>
+              <Col>
+                <Link to="/dashboard" className="px-2">Dashboard</Link>
+              </Col>
+              <Col>
+                <Button variant="primary" onClick={logout}>Cerrar Sesion</Button>
+              </Col>
             </Nav>
           </Navbar.Collapse>
         </Container>

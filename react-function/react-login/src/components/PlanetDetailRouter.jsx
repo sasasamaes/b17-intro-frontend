@@ -37,7 +37,7 @@ const PlanetDetail = (props) => {
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>Detalle del planeta 🌍</Card.Title>
-        <Card.Text>
+        <Card.Text className="text-info">
         <p> Nombre: {planet.name}</p>
         <p>Periodo de rotación: {planet.rotation_period}</p>
         <p>Orbitación: {planet.orbital_period}</p>
