@@ -1,0 +1,26 @@
+//HOC  high order components
+
+/**
+ * un HOC toma como param  un componente y regresa return de
+ * otro COMPONENTE
+ *
+ */
+
+// high order functions
+// una function toma como param  una function y regresa return de otra funcion
+
+const cellPhoneDescription = (model, year) => {
+  // return segundaFunc()
+  return (cellphone) => {
+    return `${model} ${year} ${cellphone}`;
+  };
+};
+
+// const segundaFunc = () => {
+//   console.log("saludos desde segunda funcion");
+// };
+
+// console.log(cellPhoneDescription("iphone", 2022)("XII"));
+
+const cellPhoneIOF = cellPhoneDescription("iphone", 2022);
+console.log(cellPhoneIOF("XIII"));
